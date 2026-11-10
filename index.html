@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap">
+<title>코끼리 그리기 – 발산에서 정리까지</title>
+<style>
+:root{--bg:#fff8ef;--sf:#fffdf9;--tx:#3d3129;--mu:#8c7b6b;--bd:#f5dfc3;--ac:#e8750f;--onac:#fff;--g1:#35c4b0;--g2:#9b7bff;--g3:#ffa24c;--un:#ffc83d;--wd:#ff5fa8;--ok:#2fb66f;--er:#ef5a5a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1b19;--sf:#2a2522;--tx:#f6efe8;--mu:#bba99a;--bd:#473e38;--ac:#ffa94d;--onac:#2b1a08}}
+:root[data-theme="dark"]{--bg:#1f1b19;--sf:#2a2522;--tx:#f6efe8;--mu:#bba99a;--bd:#473e38;--ac:#ffa94d;--onac:#2b1a08}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 0,#ffe2c055 0,transparent 38%),radial-gradient(circle at 95% 12%,#ffecb855 0,transparent 35%),var(--bg);color:var(--tx);font:15px/1.6 "Gowun Dodum","Pretendard","Noto Sans KR",system-ui,sans-serif;padding-bottom:130px}
+header{padding:16px 20px 4px;max-width:980px;margin:auto}h1{font-family:"Jua","Gowun Dodum",system-ui,sans-serif;font-size:27px;margin:0;color:var(--ac)}header p{margin:2px 0 0;color:var(--mu);font-size:13px}
+main{max-width:980px;margin:auto;padding:12px 20px}
+.card{background:var(--sf);border:2px solid var(--bd);border-radius:22px;padding:16px 18px;margin-bottom:14px;box-shadow:0 4px 0 var(--bd)}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}.steps span{font-size:13px;padding:5px 12px;border-radius:99px;border:2px solid var(--bd);color:var(--mu);background:var(--sf)}.steps .on{background:var(--ac);color:var(--onac);border-color:var(--ac)}
+input,textarea{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:16px;padding:9px 13px;outline:none}input:focus,textarea:focus{border-color:var(--ac)}textarea{min-height:70px;resize:vertical}
+button{font:inherit;cursor:pointer;border:2px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:99px;padding:7px 16px;box-shadow:0 3px 0 var(--bd);transition:transform .12s}button:hover:not(:disabled){transform:translateY(-2px)}button:active:not(:disabled){transform:translateY(2px);box-shadow:none}button.pri{background:linear-gradient(135deg,#ffb04d,#e8750f);border-color:#cf6208;color:#fff;box-shadow:0 3px 0 #cf6208}button:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>input{flex:1;min-width:140px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.chip{display:inline-block;font-size:12.5px;padding:3px 11px;border-radius:99px;background:var(--bg);border:2px solid var(--bd);margin:2px 4px 2px 0}
+.kc{border-left:5px solid var(--c,var(--ac));cursor:pointer;margin:0;min-height:86px}.kc h4{margin:0 0 4px;font-size:15px}.kc small{color:var(--mu)}.kc.uni{background:color-mix(in srgb,var(--un) 18%,var(--sf));border-color:var(--un)}
+.msg{font-size:13px;margin:8px 0;color:var(--mu)}.msg.er{color:var(--er)}.msg.ok{color:var(--ok)}
+svg{width:100%;height:auto;background:radial-gradient(var(--bd) 1.4px,transparent 1.7px) 0 0/22px 22px,var(--sf);border:2px solid var(--bd);border-radius:22px;touch-action:none}
+svg text{fill:var(--tx);font-size:13px;pointer-events:none;font-family:inherit}
+.nav{display:flex;justify-content:space-between;margin-top:10px;gap:8px}
+#tl{position:fixed;left:0;right:0;bottom:0;background:var(--sf);border-top:2px solid var(--bd);border-radius:22px 22px 0 0;box-shadow:0 -4px 16px rgba(232,117,15,.18);padding:8px 14px calc(8px + env(safe-area-inset-bottom,0px));z-index:5}
+#tl .in{max-width:980px;margin:auto;display:flex;gap:6px;overflow-x:auto;align-items:center}#tl b{font-size:12px;color:var(--mu);white-space:nowrap}
+.tn{white-space:nowrap;font-size:12.5px;padding:5px 12px;border-radius:99px;border:2px solid var(--bd);background:var(--bg);cursor:pointer}.tn.cur{border-color:var(--ac);color:var(--ac)}.tn.empty{opacity:.5}
+.q{cursor:pointer}.q.sel{outline:2px solid var(--ac)}.q .t{font-size:11px;color:var(--ac);font-weight:600}
+.tline{border-left:3px solid var(--bd);margin-left:6px;padding-left:14px}.tline div{margin:0 0 12px;position:relative}.tline div:before{content:"";position:absolute;left:-21px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--ac)}.tline .gap:before{background:var(--wd)}.tline .gap{color:var(--wd)}
+.final{font-size:16px;line-height:1.75;white-space:pre-wrap}
+#tlsm{max-width:980px;margin:6px auto 0;font-size:12.5px;color:var(--mu);cursor:pointer;max-height:38vh;overflow:auto}#tlsm b{color:var(--tx)}#tlsm .one{display:inline-block;max-width:100%;vertical-align:bottom;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#tlsm div div{margin:2px 0}
+</style></head><body>
+<header><h1>🐘 코끼리 그리기</h1><p>각자 낸 아이디어 한 조각을 모아, 눈먼 이들이 코끼리 전체를 그려 가듯 하나의 결론으로 정리합니다.</p><div id="rs" style="margin-top:8px"></div><div id="sv"></div></header>
+<main id="app"></main>
+
+<div id="tl"><div class="in" id="tlin"></div><div id="tlsm"></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let S={topic:"",ideas:[],groups:[],links:[],pos:{},wild:[],trunk:[],p1ok:false,qs:[],concl:"",gaps:[],stale:true,page:1,step:1,sel:null,note:"",team:[],c1:"",c1Stale:false,fq:{list:[]},lq:{},who:"",fills:[]};
+let AIREADY=null,BUSY=false;
+try{const r=localStorage.getItem("ideaflow");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+function save(){try{localStorage.setItem("ideaflow",JSON.stringify(S))}catch(e){}}
+async function getAI(){if(AIREADY!==null)return AIREADY;try{AIREADY=(window.claude&&await claude.use("sample"))||false}catch(e){AIREADY=false}return AIREADY}
+async function ask(prompt){const a=await getAI();if(!a)return null;try{return await a.json(prompt)}catch(e){return null}}
+function touch(){S.stale=true;save();}
+function nodes(){const n=[];if(S.topic)n.push({id:"T",kw:S.topic,type:"topic"});S.ideas.forEach(i=>n.push({id:i.id,kw:i.kw,type:uniq(i.id)?"uni":"idea",g:gidx(i.id)}));S.wild.forEach(w=>n.push({id:w.id,kw:w.kw,type:"wild"}));return n}
+const gidx=id=>S.groups.findIndex(g=>g.ids.includes(id));
+const uniq=id=>{const g=S.groups[gidx(id)];return !g||g.ids.length<2};
+const GC=["--g1","--g2","--g3","--ac"];
+function sim(a,b){const bg=s=>{s=s.replace(/\s/g,"");const r=new Set();for(let i=0;i<s.length-1;i++)r.add(s.slice(i,i+2));return r};const A=bg(a),B=bg(b);if(!A.size||!B.size)return a===b?1:0;let c=0;A.forEach(x=>B.has(x)&&c++);return c/Math.min(A.size,B.size)}
+function localGroup(){const ids=S.ideas.map(i=>i.id),seen=new Set(),out=[];ids.forEach(id=>{if(seen.has(id))return;const A=S.ideas.find(i=>i.id===id);const m=[id];seen.add(id);ids.forEach(o=>{if(seen.has(o))return;const B=S.ideas.find(i=>i.id===o);if(sim(A.kw+A.detail.slice(0,10),B.kw)>=.5||sim(A.kw,B.kw)>=.5){m.push(o);seen.add(o)}});out.push({label:m.length>1?A.kw+" 계열":A.kw,ids:m,summary:A.detail?A.detail.slice(0,50):A.kw})});return out}
+function degree(){const d={};S.links.forEach(([a,b])=>{d[a]=(d[a]||0)+1;d[b]=(d[b]||0)+1});return d}
+function topNodes(){const d=degree();return Object.keys(d).filter(k=>k!=="T").sort((a,b)=>d[b]-d[a]).slice(0,3)}
+const kwOf=id=>(nodes().find(n=>n.id===id)||{}).kw||"";
+function layout(){const ns=nodes();ns.forEach((n,i)=>{if(S.pos[n.id])return;if(n.id==="T")S.pos.T={x:350,y:210};else{const k=ns.length-1,a=(i-1)/Math.max(k,1)*Math.PI*2-1.2;S.pos[n.id]={x:350+Math.cos(a)*250,y:210+Math.sin(a)*150}}})}
+const POOL=["자판기","해파리","한밤의 도서관","거꾸로 가는 시계","화산","빵집","우주정거장","고양이 택시","비 오는 날","곰팡이","오케스트라","자전거 펌프"];
+
+/* ---------- render ---------- */
+function render(){const A=$("#app");
+if(S.page===1)A.innerHTML=p1();else if(S.page===2)A.innerHTML=p2();else if(S.page===3)A.innerHTML=p3();else A.innerHTML=p4();
+bind();tl();rs();sv()}
+function stepsBar(n,arr){return '<div class="steps">'+arr.map((t,i)=>`<span class="${i+1===n?"on":""}">${i+1}. ${t}</span>`).join("")+'</div>'}
+function p1(){const st=S.step,h=`<div class="card"><b>PAGE 1 · 키워드 마인드맵</b>`+stepsBar(st,["의견 투입","AI 카드 요약","마인드맵 연결","엉뚱한 키워드 · 연결 질문","투표 · 결론 · 동의"])+"</div>";
+if(st===1)return h+`<div class="card"><label>중심 주제</label><input id="topic" value="${esc(S.topic)}" placeholder="예: 우리 동네 도서관 활성화"><div class="row" style="margin-top:10px"><input id="kw" placeholder="키워드"><input id="dt" placeholder="상세 설명(선택)"><button class="pri" id="add">추가</button></div><p class="msg">키워드마다 상세 설명을 적어두면 카드를 눌렀을 때 전문이 보입니다.</p>${S.ideas.map(i=>`<span class="chip">${esc(i.kw)} <span data-ed="${i.id}" style="cursor:pointer">✎</span> <a href="#" data-del="${i.id}" style="text-decoration:none">✕</a></span>`).join("")}${kwEd()}</div><div class="nav"><span></span><button class="pri" id="to2" ${S.ideas.length<3||!S.topic?"disabled":""}>AI 카드 만들기 (키워드 3개 이상)</button></div>`;
+if(st===2)return h+`<div class="card"><span class="chip" style="border-color:var(--un)">🟡 노란색 = 한 명만 낸 고유 아이디어</span><span class="chip">같은 색 막대 = AI가 묶은 비슷한 아이디어</span><p class="msg">${S.note||""}카드를 누르면 상세 설명이 열립니다. ✎로 수정·삭제할 수 있어요.</p></div>${kwEd()}${S.groups.map((g,gi)=>`<div class="card"><b style="color:var(${GC[gi%4]})">${esc(g.label)}</b> <small class="msg">${esc(g.summary||"")}</small><div class="grid" style="margin-top:8px">${g.ids.map(id=>{const i=S.ideas.find(x=>x.id===id);return i?`<div class="card kc ${g.ids.length<2?"uni":""}" style="--c:var(${g.ids.length<2?"--un":GC[gi%4]})" data-flip="${id}"><h4>${esc(i.kw)} <span data-ed="${id}" style="cursor:pointer;font-size:12px">✎</span></h4><small class="d" id="d${id}">${esc((i.detail||"").slice(0,26)||"(설명 없음)")}…</small></div>`:""}).join("")}</div></div>`).join("")}<div class="nav"><button id="b1">← 수정</button><button class="pri" id="to3">마인드맵으로 연결 →</button></div>`;
+if(st===3){layout();return h+`<div class="card"><p class="msg" style="margin-top:0">노드를 드래그해 배치하고, 두 노드를 차례로 클릭하면 선으로 연결(다시 연결하면 해제)됩니다. 선택: <b>${esc(S.sel?kwOf(S.sel):"없음")}</b></p>${svg()}${linkEd()}${kwEd()}</div><div class="nav"><button id="b2">← 카드</button><button class="pri" id="to4" ${S.links.length<2?"disabled":""}>다음 (연결 2개 이상) →</button></div>`}
+if(st===5)return h+p1s5();const tn=topNodes();return h+`<div class="card"><button id="wild">🎲 엉뚱한 키워드 던지기</button> <span class="msg">AI가 뜬금없는 키워드를 몇몇 카드에 붙입니다. 엉뚱한 키워드끼리는 연결할 수 없고, 기존 키워드에만 붙일 수 있어요.</span>${S.wild.length?svg()+linkEd()+kwEd():""}</div>${lqUI()}<div class="nav"><button id="b3">← 마인드맵</button><button class="pri" id="to5">다음: 투표 · 결론 · 동의 →</button></div>`}
+let svOpen=false,svName="",svMsg="",svText="";const SK="ideaflow_saves";
+function getSaves(){try{return JSON.parse(localStorage.getItem(SK)||"[]")}catch(e){return []}}
+function putSaves(a){try{localStorage.setItem(SK,JSON.stringify(a));return true}catch(e){svMsg="브라우저 저장공간을 쓸 수 없어요. 파일로 내보내 주세요.";return false}}
+function defS(){return {topic:"",ideas:[],groups:[],links:[],pos:{},wild:[],trunk:[],p1ok:false,qs:[],concl:"",gaps:[],stale:true,page:1,step:1,sel:null,note:"",team:[],c1:"",c1Stale:false,fq:{list:[]},lq:{},who:"",fills:[]}}
+function fnm(){return (S.topic||"논의").replace(/[^0-9A-Za-z가-힣]+/g,"-").slice(0,30)}
+function snapMd(){const f=S.fin||{},L=["# "+(S.topic||"논의 정리")];
+if(f.head)L.push("\n**"+f.head+"**");
+L.push("\n## 회의 내용 요약\n"+(f.recap||tlSteps().join("\n")));
+L.push("\n## 우리가 도출한 결론\n"+(f.body||S.concl||S.c1||"(아직 결론이 없습니다)"));
+if(S.ideas.length)L.push("\n## 키워드\n"+S.ideas.map(i=>"- "+i.kw+(i.detail?": "+i.detail:"")).join("\n"));
+if(S.wild.length)L.push("\n## 엉뚱한 키워드\n"+S.wild.map(w=>"- "+w.kw).join("\n"));
+if(S.links.length)L.push("\n## 연결\n"+S.links.map(l=>"- "+kwOf(l[0])+" ↔ "+kwOf(l[1])+(l[3]?" (👍 "+l[3]+")":"")+(l[2]?" — "+l[2]:"")).join("\n"));
+const q=lqList();if(q.length)L.push("\n## 연결 질문과 답변\n"+q.map(x=>"- **"+x.연결+"** "+x.질문+"\n"+x.답변.map(a=>"  - "+a).join("\n")).join("\n"));
+if(fql().length)L.push("\n## 흐름 점검\n"+fql().map(x=>"- "+x.q+"\n  - "+(x.a||"")).join("\n"));
+if((f.next||[]).length)L.push("\n## 다음 한 걸음\n"+f.next.map((x,i)=>(i+1)+". "+x).join("\n"));
+return L.join("\n")+"\n\n---\n"+CR()}
+async function dl(name,data){svText="";try{const d=window.claude&&await claude.use("downloads");if(!d)throw {code:"none"};await d.save({filename:name,data});svMsg="파일 저장을 요청했어요. 나타난 확인 창에서 허용해 주세요."}catch(e){const c=e&&e.code;if(c==="declined")svMsg="저장을 취소했어요.";else{svMsg="이 화면에서는 파일 저장이 막혀 있어요"+(c&&c!=="none"?" (오류: "+c+")":"")+". 아래 내용을 복사해서 메모장에 "+name.split(".").pop()+" 파일로 저장해 두세요.";svText=data;try{await navigator.clipboard.writeText(data);svMsg+=" (클립보드에도 복사했어요)"}catch(x){}}}sv()}
+function sv(){const e=$("#sv"),L=getSaves(),$i=id=>document.getElementById(id);
+if(!svOpen){e.innerHTML=`<button id="svb" style="margin-top:8px">💾 저장 · 불러오기</button>`;$i("svb").onclick=()=>{svOpen=true;svMsg="";sv()};return}
+e.innerHTML=`<div class="card" style="margin-top:10px"><b>💾 저장 · 불러오기</b> <button id="svx" style="float:right">닫기</button><div class="row" style="margin-top:8px"><input id="svn" placeholder="저장 이름 (비우면 주제로 저장)" value="${esc(svName)}"><button class="pri" id="svs">현재 논의 저장</button></div>${L.length?L.map((x,i)=>`<div class="row" style="margin-top:6px"><span style="flex:1"><b>${esc(x.name)}</b> <span class="msg">${esc(x.t)}</span></span><button data-sl="${i}">불러오기</button><button data-sd="${i}">삭제</button></div>`).join(""):'<p class="msg">저장된 논의가 없습니다.</p>'}<div class="row" style="margin-top:10px"><button id="svj">파일로 내보내기(.json)</button><button id="svm">정리 문서 내보내기(.md)</button><label style="cursor:pointer"><span style="border:1px solid var(--bd);border-radius:10px;padding:8px 14px;display:inline-block">파일 불러오기(.json)</span><input type="file" id="svf" accept=".json" style="display:none"></label></div><p class="msg">브라우저 저장은 이 기기에만 남아요. 다른 기기나 팀과 나눠야 하면 파일로 내보내세요.</p><p class="msg ok" id="svmsg">${esc(svMsg)}</p>${svText?`<textarea readonly onclick="this.select()" style="min-height:120px;font-size:12px">${esc(svText)}</textarea>`:""}<textarea id="svp" placeholder="저장해 둔 .json 내용을 여기에 붙여넣어 불러오기" style="min-height:60px;margin-top:8px"></textarea><button id="svpb" style="margin-top:6px">붙여넣은 내용으로 불러오기</button></div>`;
+$i("svpb").onclick=()=>{try{const d=JSON.parse($i("svp").value);if(!d||typeof d!=="object"||!("ideas" in d))throw 0;S=Object.assign(defS(),d);save();svMsg="";svOpen=false;BUSY=false;render()}catch(x){svMsg="올바른 저장 내용이 아니에요.";sv()}};
+$i("svx").onclick=()=>{svOpen=false;sv()};
+$i("svn").oninput=ev=>{svName=ev.target.value};
+$i("svs").onclick=()=>{const name=svName.trim()||S.topic||"이름 없는 논의",a=getSaves();a.unshift({name,t:new Date().toLocaleString("ko-KR"),d:JSON.parse(JSON.stringify(S))});if(putSaves(a)){svMsg="저장했어요: "+name;svName=""}sv()};
+document.querySelectorAll("[data-sl]").forEach(b=>b.onclick=()=>{const x=L[+b.dataset.sl];S=Object.assign(defS(),JSON.parse(JSON.stringify(x.d)));save();svMsg="";svOpen=false;BUSY=false;render()});
+document.querySelectorAll("[data-sd]").forEach(b=>b.onclick=()=>{const a=getSaves();a.splice(+b.dataset.sd,1);putSaves(a);sv()});
+$i("svj").onclick=()=>dl("ideaflow-"+fnm()+".json",JSON.stringify(Object.assign({_credit:CR()},S),null,2));
+$i("svm").onclick=()=>dl("ideaflow-"+fnm()+".md",snapMd());
+$i("svf").onchange=ev=>{const f=ev.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||typeof d!=="object"||!("ideas" in d))throw 0;S=Object.assign(defS(),d);save();svMsg="";svOpen=false;BUSY=false;render()}catch(x){svMsg="올바른 저장 파일이 아니에요.";sv()}};r.readAsText(f)}}
+let rsAsk=false;
+function resetAll(){S={topic:"",ideas:[],groups:[],links:[],pos:{},wild:[],trunk:[],p1ok:false,qs:[],concl:"",gaps:[],stale:true,page:1,step:1,sel:null,note:"",team:[],c1:"",c1Stale:false,fq:{list:[]},lq:{},who:"",fills:[]};try{localStorage.removeItem("ideaflow")}catch(e){}tlOpen=false;BUSY=false;window.scrollTo(0,0);render()}
+function rs(){const e=$("#rs");e.innerHTML=rsAsk?`<span class="msg er">입력한 내용이 모두 사라집니다. 처음부터 다시 시작할까요? 나중에 불러오려면 먼저 💾 저장해 두세요.</span> <button id="rsy" style="color:var(--er)">초기화</button> <button id="rsn">취소</button>`:`<button id="rsb">↺ 처음부터 다시 시작</button>`;
+const on=(id,f)=>{const b=document.getElementById(id);if(b)b.onclick=f};on("rsb",()=>{rsAsk=true;rs()});on("rsn",()=>{rsAsk=false;rs()});on("rsy",()=>{rsAsk=false;resetAll()})}
+function isW(id){return S.wild.some(w=>w.id===id)}
+function teamOk(){return S.team.length>0&&S.team.every(m=>m.ok)}
+function fql(){return []}
+function p1done(){return !!(S.p1ok&&S.c1&&!S.c1Stale&&teamOk())}
+function voteChg(){S.c1Stale=true;S.team.forEach(m=>m.ok=false);S.fq={list:[]};touch()}
+function p1s5(){const L=S.links.map((l,i)=>({l,i})),voted=L.some(x=>x.l[3]),ag=S.team.filter(m=>m.ok).length,cok=S.c1&&!S.c1Stale;
+return `<div class="card"><b>① 좋은 연결에 칭찬 👍</b><p class="msg">잘 이어졌다고 생각하는 연결에 👍를 눌러 주세요. 여러 번 눌러도 됩니다.</p>${L.length?L.map(x=>`<div class="row" style="margin:6px 0"><button data-up="${x.i}">👍 ${x.l[3]||0}</button><button data-dn="${x.i}" style="padding:8px 10px">−</button><span><b>${esc(kwOf(x.l[0]))} ↔ ${esc(kwOf(x.l[1]))}</b>${x.l[2]?` <span class="msg">💬 ${esc(x.l[2])}</span>`:""}</span></div>`).join(""):'<p class="msg">연결이 없습니다. 마인드맵 단계에서 먼저 연결해 주세요.</p>'}</div>`
++`<div class="card"><b>② 👍 + 의견으로 결론 도출</b><div style="margin:8px 0"><button class="pri" id="mkc" ${voted?"":"disabled"}>${S.c1?"결론 다시 도출":"결론 도출"}</button></div>${S.c1&&S.c1Stale?'<p class="msg er">투표나 의견이 바뀌었어요. 결론을 다시 도출해 주세요.</p>':""}${S.c1?`<div class="final" style="font-size:15px">${esc(S.c1)}</div>`:'<p class="msg">👍를 한 개 이상 준 뒤 도출할 수 있어요.</p>'}</div>`
++`<div class="card"><b>③ 팀원 동의 (${ag}/${S.team.length})</b><p class="msg">결론을 함께 보고 팀원이 각자 동의를 눌러 주세요. 모두 동의해야 다음으로 갈 수 있어요.</p><div class="row"><input id="mn" placeholder="팀원 이름"><button id="addm">추가</button></div><div style="margin-top:8px">${S.team.map((m,i)=>`<span class="chip" style="padding:4px 6px"><b>${esc(m.name)}</b> <button data-ag="${i}" style="padding:2px 8px;margin-left:4px;${m.ok?"background:var(--ok);color:#fff;border-color:var(--ok)":""}" ${cok?"":"disabled"}>${m.ok?"✔ 동의":"동의하기"}</button><span data-rm="${i}" style="cursor:pointer;margin-left:6px">✕</span></span>`).join("")}</div></div>`
++`<div class="nav"><button id="b6">← 엉뚱한 키워드</button><button class="pri" id="to7" ${p1done()?"":"disabled"}>PAGE 2 추론 카드 →</button></div>`}
+async function mkConcl(){S.trunk=topNodes().filter(x=>S.ideas.some(i=>i.id===x));const b=$("#mkc");b.disabled=true;b.textContent="도출 중…";const arr=S.links.map(l=>({a:kwOf(l[0]),b:kwOf(l[1]),likes:l[3]||0,note:l[2]||""})).filter(x=>x.likes||x.note).sort((x,y)=>y.likes-x.likes);
+const r=await ask(`주제 “${S.topic}”. 아래는 팀이 마인드맵에서 만든 연결의 👍 수와 의견이다. 👍가 많은 연결과 의견을 종합해 4~6문장의 결론을 한국어로 도출하라. JSON만: {"c":"..."}\n${JSON.stringify({연결:arr,질문답변:lqList()})}`);
+S.c1=(r&&r.c)?String(r.c):`가장 높은 평가를 받은 연결은 ${arr[0].a}–${arr[0].b}(👍 ${arr[0].likes})입니다. `+arr.slice(0,3).map(x=>`${x.a}–${x.b}`+(x.note?`에는 “${x.note}”라는 의견이 있었고`:"")).join(", ")+` 이를 종합하면 칭찬받은 연결을 중심으로 “${S.topic}”를 풀어가는 방향이 팀의 결론입니다.`;
+S.c1Stale=false;S.team.forEach(m=>m.ok=false);S.fq={list:[]};touch();render()}
+async function getFq(){const b=$("#getq");b.disabled=true;b.textContent="질문 만드는 중…";const r=await ask(`주제 “${S.topic}”. 팀이 합의한 결론: ${S.c1}\n지금까지의 흐름(주제 설정, 키워드 연결, 엉뚱한 키워드, 투표, 결론)을 서로 다른 각도에서 점검하는 짧은 질문 3개(각각 한 문장, 한국어)를 JSON만: {"qs":["...","...","..."]}`);const FB=["합의한 결론에서 가장 마음에 걸리거나 더 확인하고 싶은 부분은 무엇인가요?","지금까지 흐름에서 빠뜨렸거나 충분히 다루지 못한 관점이 있다면 무엇인가요?","엉뚱한 키워드와 👍를 많이 받은 연결이 결론에 제대로 반영되었다고 보시나요? 이유는?"];let q=(r&&Array.isArray(r.qs))?r.qs.map(String).filter(Boolean).slice(0,3):[];while(q.length<3)q.push(FB[q.length]);S.fq={list:q.map(x=>({q:x,a:""}))};touch();render()}
+function kwEd(){const id=S.edId;if(!id)return "";const isT=id==="T",w=S.wild.find(x=>x.id===id),i=S.ideas.find(x=>x.id===id);if(!isT&&!w&&!i)return "";const kw=isT?S.topic:(w||i).kw;
+return `<div class="card" style="margin:10px 0 0"><b>${isT?"주제":w?"엉뚱한 키워드":"키워드"} 수정·삭제</b><div class="row" style="margin-top:6px"><input id="ek" value="${esc(kw)}">${i?`<input id="ed" value="${esc(i.detail||"")}" placeholder="상세 설명">`:""}<button class="pri" id="eok">저장</button>${isT?"":`<button id="edel" style="color:var(--er)">삭제</button>`}<button id="ecl">닫기</button></div>${isT?"":'<p class="msg" style="margin:6px 0 0">삭제하면 이 키워드에 연결된 선과 투표도 함께 사라집니다.</p>'}</div>`}
+function lqKey(l){return [l[0],l[1]].sort().join("|")}
+function lqLinks(){return S.links.filter(l=>l[0]!=="T"&&l[1]!=="T")}
+function lqList(){return lqLinks().map(l=>({l,o:S.lq[lqKey(l)]})).filter(x=>x.o&&x.o.ans&&x.o.ans.length).map(x=>({연결:kwOf(x.l[0])+"–"+kwOf(x.l[1]),질문:x.o.q,답변:x.o.ans.map(a=>a.who+": "+a.t)}))}
+function lqUI(){const L=lqLinks(),has=l=>S.lq[lqKey(l)]&&S.lq[lqKey(l)].q,miss=L.filter(l=>!has(l));
+return `<div class="card"><b>연결 질문 · 여러 사람 답변</b><p class="msg">기존 키워드끼리의 연결, 그리고 엉뚱한 키워드와 기존 키워드 사이의 연결마다 질문을 던집니다. 여러 명이 각자 이름으로 답할 수 있어요.</p><div class="row"><input id="who" list="tm" placeholder="내 이름" value="${esc(S.who||"")}"><datalist id="tm">${S.team.map(m=>`<option value="${esc(m.name)}">`).join("")}</datalist><button id="mkq" ${miss.length?"":"disabled"}>질문 만들기 (${miss.length})</button></div>`
++L.filter(has).map(l=>{const k=lqKey(l),o=S.lq[k],w=isW(l[0])||isW(l[1]);return `<div class="card" style="margin:10px 0 0"><div style="font-size:11px;font-weight:600;color:${w?"var(--wd)":"var(--ac)"}">${w?"엉뚱한 연결":"기존 키워드 연결"}</div><div>${esc(o.q)}</div>${o.ans.map((a,j)=>`<p class="msg" style="margin:6px 0 0"><b>${esc(a.who)}</b>: ${esc(a.t)} <span data-lx="${k}" data-j="${j}" style="cursor:pointer">✕</span></p>`).join("")}<div class="row" style="margin-top:6px"><input data-lqi="${k}" placeholder="내 답변"><button data-lqa="${k}">답변 등록</button></div></div>`}).join("")+(L.length?"":'<p class="msg">연결이 아직 없어요.</p>')+`</div>`}
+async function mkLq(){const b=$("#mkq");b.disabled=true;b.textContent="만드는 중…";const L=lqLinks().filter(l=>!(S.lq[lqKey(l)]&&S.lq[lqKey(l)].q)),items=L.map(l=>({k:lqKey(l),a:kwOf(l[0]),b:kwOf(l[1]),wild:isW(l[0])||isW(l[1])}));
+const r=await ask(`주제 “${S.topic}”. 아래 연결마다 팀원 여러 명이 각자 답할 수 있는 열린 질문을 한국어 한 문장으로 만들어라. wild가 true면 엉뚱한 키워드와 기존 키워드의 뜬금없는 조합에서 새 아이디어를 끌어내는 질문, false면 두 기존 키워드의 관계를 묻는 질문. JSON만: {"qs":[{"k":"키 그대로","q":"질문"}]}\n${JSON.stringify(items)}`);
+const m={};if(r&&Array.isArray(r.qs))r.qs.forEach(x=>{if(x&&x.k&&x.q)m[x.k]=String(x.q)});
+items.forEach(it=>{const old=S.lq[it.k];S.lq[it.k]={q:m[it.k]||(it.wild?`“${it.a}” × “${it.b}”: 이 엉뚱한 조합에서 어떤 새 아이디어가 나올까요?`:`“${it.a}” ↔ “${it.b}”: 두 키워드는 서로 어떤 관계이고, 함께하면 무엇이 달라질까요?`),ans:(old&&old.ans)||[]}});touch();render()}
+function linkSvg(){let s="";S.links.forEach(([a,b,n],i)=>{const p=S.pos[a],q=S.pos[b];if(!p||!q)return;const mx=(p.x+q.x)/2,my=(p.y+q.y)/2,on=S.selL===i;s+=`<line x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}" stroke="${on?"var(--ac)":"var(--mu)"}" stroke-width="${on?3:2}" opacity=".7"/><g data-l="${i}" transform="translate(${mx},${my})" style="cursor:pointer"><circle r="11" fill="var(--sf)" stroke="${n?"var(--ac)":"var(--bd)"}" stroke-width="2"/><text text-anchor="middle" y="4" style="font-size:12px">${n?"💬":"✎"}</text></g>`});return s}
+function opSync(l){l[2]=(l[4]||[]).map(o=>(o.who?o.who+": ":"")+o.t).join(" / ")}
+function linkEd(){const wn=S.warn?`<p class="msg er">${S.warn}</p>`:"";S.warn="";const l=S.links[S.selL];if(l&&l[2]&&!l[4])l[4]=[{who:"",t:l[2]}];if(!l)return wn+`<p class="msg">연결선 가운데의 ✎ 버튼을 누르면, 그 연결에 대한 의견을 적을 수 있어요.</p>`;return wn+`<div class="card" style="margin:10px 0 0"><b>${esc(kwOf(l[0]))} ↔ ${esc(kwOf(l[1]))}</b> <span class="msg">왜 연결했나요? 의견을 여러 개 남길 수 있어요.</span>${(l[4]||[]).map((o,j)=>`<p style="margin:6px 0 0"><b>${esc(o.who||"익명")}</b>: ${esc(o.t)} <span data-oc="${j}" style="cursor:pointer">✕</span></p>`).join("")}<div class="row" style="margin-top:8px"><input id="ow" placeholder="이름(선택)" style="max-width:120px" value="${esc(S.who||"")}"><input id="ot" placeholder="의견을 입력하세요"><button id="oadd">의견 추가</button></div><div class="row" style="margin-top:8px"><button class="pri" id="odone">완료</button><button data-ld="${S.selL}">연결 삭제</button></div></div>`}
+function svg(){const ns=nodes(),W=700,H=420;let s=`<svg viewBox="0 0 ${W} ${H}" id="map">`;s+=`<g class="lk">${linkSvg()}</g>`;
+ns.forEach(n=>{const p=S.pos[n.id];if(!p)return;const w=Math.max(70,n.kw.length*14+40),col=n.type==="topic"?"var(--tx)":n.type==="wild"?"var(--wd)":n.type==="uni"?"var(--un)":`var(${GC[(n.g<0?0:n.g)%4]})`;
+s+=`<g data-n="${n.id}" transform="translate(${p.x},${p.y})" style="cursor:grab"><rect x="${-w/2}" y="-18" width="${w}" height="36" rx="18" fill="${n.type==="topic"?"var(--tx)":"var(--sf)"}" stroke="${col}" stroke-width="${S.sel===n.id?5:3}" ${n.type==="wild"?'stroke-dasharray="5 3"':""}/><text text-anchor="middle" y="5" ${n.type==="topic"?'style="fill:var(--bg)"':""}>${n.type==="wild"?"🥜 ":n.type==="topic"?"🐘 ":""}${esc(n.kw)}</text></g>`});return s+"</svg>"}
+function p2(){const done=S.qs.filter(q=>q.ans&&q.ans.trim()).length;return `<div class="card"><b>PAGE 2 · 추론 카드</b><p class="msg" style="margin:4px 0">핵심 줄기: ${S.trunk.map(t=>`<span class="chip">${esc(kwOf(t))}</span>`).join("")} — 질문 카드를 골라 답하면 AI가 요약합니다.</p><button id="genq">${S.qs.length?"질문 카드 새로 받기":"질문 카드 받기"}</button> <span class="msg" id="qm"></span></div><div class="grid">${S.qs.map((q,i)=>`<div class="card q ${q.open?"sel":""}" data-q="${i}" style="margin:0"><div class="t">${esc(q.type)}</div><div>${esc(q.q)}</div>${q.open?`<textarea data-a="${i}" placeholder="내 답변">${esc(q.ans||"")}</textarea><button data-s="${i}">AI 요약</button>`:""}${q.sum?`<p class="msg ok" style="margin:6px 0 0">요약: ${esc(q.sum)}</p>`:""}</div>`).join("")}</div><div class="nav"><button id="b4">← PAGE 1</button><button class="pri" id="to6">결과 합치기 → PAGE 3${done?` (${done}개 답변)`:""}</button></div>`}
+function p4(){const f=S.fin||{},top=S.links.filter(l=>l[3]).sort((a,b)=>b[3]-a[3]).slice(0,3);
+return `<div class="card"><b>PAGE 4 · 결론</b> <span class="msg">${S.team.filter(m=>m.ok).length}/${S.team.length}명 동의</span> <button id="regen4">${BUSY?"정리 중…":"다시 정리"}</button></div>`
++`<div class="card" style="text-align:center"><div class="msg">${esc(S.topic)}</div><div style="font-size:22px;font-weight:700;margin:6px 0">${esc(f.head||"정리 중…")}</div><div style="margin-top:6px">${S.trunk.map(t=>`<span class="chip">${esc(kwOf(t))}</span>`).join("")}</div></div>`
++`<div class="card"><b>회의 내용 요약</b><div class="final" style="margin-top:6px;font-size:15px">${esc(f.recap||"")}</div></div><div class="card"><b>우리가 도출한 결론</b><div class="final" style="margin-top:6px">${esc(f.body||S.concl||"")}</div></div>`
++(top.length?`<div class="card"><b>가장 지지받은 연결</b>${top.map(l=>`<p style="margin:6px 0">👍 ${l[3]} · <b>${esc(kwOf(l[0]))} ↔ ${esc(kwOf(l[1]))}</b>${l[2]?` <span class="msg">${esc(l[2])}</span>`:""}</p>`).join("")}</div>`:"")
++((f.next||[]).length?`<div class="card"><b>다음 한 걸음</b><ol>${f.next.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`:"")
++`<div class="nav"><button id="b7">← 요약</button><button class="pri" id="cp4">결론 복사</button></div>`}
+function ctxAll(){return {주제:S.topic,키워드:S.ideas.map(i=>i.kw+(i.detail?"("+i.detail+")":"")),묶음:S.groups.map(g=>g.label+": "+g.ids.map(kwOf).join(", ")),고유아이디어:S.ideas.filter(i=>uniq(i.id)).map(i=>i.kw),엉뚱한키워드:S.wild.map(w=>w.kw),연결:S.links.map(l=>({연결:kwOf(l[0])+"–"+kwOf(l[1]),좋아요:l[3]||0,의견:l[2]||""})),핵심줄기:S.trunk.map(kwOf),연결질문답변:lqList(),팀결론:S.c1,동의:S.team.filter(m=>m.ok).map(m=>m.name),흐름점검:fql().map(x=>({질문:x.q,답:x.a})),추론카드:S.qs.filter(q=>q.ans).map(q=>({유형:q.type,질문:q.q,답:q.ans})),보완:S.fills.map(f=>f.gap+" → "+f.text),정리:S.concl}}
+async function enter4(){if(S.fin&&S.fin.src===S.concl&&S.fin.body&&S.fin.recap){render();return}BUSY=true;render();
+const r=await ask(`지금까지 회의 전체를 바탕으로 최종 결론 페이지를 쓴다. head: 한 줄 결론(30자 이내). recap: 회의 내용 요약 — 주제 설정, 모인 키워드와 묶음, 엉뚱한 키워드, 연결과 의견, 좋아요 투표, 연결 질문 답변, 팀 동의, 흐름 점검 답변, 보완 내용을 시간 순서의 서술형 3~5문단으로 구체적으로 풀어서 쓴다. body: “우리가 도출한 결론은”으로 시작하는 장황하고 상세한 결론(최소 10문장, 3~4문단): 결론의 내용, 그렇게 판단한 근거, 반대 의견이나 한계, 실행 방향까지 포함. next: 바로 실행할 다음 한 걸음 3개. 한국어, JSON만: {"head":"...","recap":"...","body":"...","next":["...","...","..."]}\n${JSON.stringify(ctxAll())}`);
+S.fin=(r&&r.body)?{head:String(r.head||S.topic),recap:String(r.recap||""),body:String(r.body),next:(r.next||[]).map(String).slice(0,3),src:S.concl}:{recap:tlSteps().join("\n"),head:(S.trunk.length?S.trunk.map(kwOf).join(" · ")+" 중심으로 "+S.topic:S.topic),body:"우리가 도출한 결론은 다음과 같다. "+S.concl,next:S.gaps.length?S.gaps.slice(0,3):["결론을 팀원과 공유하고 담당자를 정한다."],src:S.concl};
+BUSY=false;save();render()}
+function p3(){const as=S.qs.filter(q=>q.sum||q.ans);return `<div class="card"><b>PAGE 3 · 요약</b> ${S.stale?'<span class="chip">이전 페이지가 수정되어 다시 정리 필요</span>':""} <button id="regen">${BUSY?"정리 중…":"다시 정리"}</button></div><div class="card"><b>① 최종 정리</b><div class="final" id="fin">${esc(S.concl||"정리 중…")}</div></div><div class="card"><b>② 결론에 이른 과정</b><div class="tline" style="margin-top:10px">${tlSteps().map(t=>`<div>${esc(t)}</div>`).join("")}${S.gaps.map((g,i)=>`<div class="gap">🔎 빈 부분 제안: ${esc(g)}<span class="row" style="display:flex;margin-top:4px"><button data-gap="${i}" style="padding:2px 8px;font-size:12px">제안 그대로 반영</button><input data-gi="${i}" placeholder="직접 적어 넣기" style="flex:1;min-width:120px;font-size:13px;padding:4px 8px"><button data-gw="${i}" style="padding:2px 8px;font-size:12px">적어 넣기</button><button data-gp="1" style="padding:2px 8px;font-size:12px">PAGE 1에서 보완</button><button data-gp="2" style="padding:2px 8px;font-size:12px">PAGE 2에서 보완</button></span></div>`).join("")}</div><div class="row" style="margin-top:10px"><input id="gfree" placeholder="빠진 부분이 있다면 직접 적어 넣기"><button id="gfreeb">추가</button></div></div><div class="nav"><button id="b5">← 질문 카드</button><div class="row"><button id="cp">정리 복사</button><button class="pri" id="to8" ${S.concl&&!S.stale?"":"disabled"}>PAGE 4 결론 →</button></div></div>`}
+function tlSteps(){const t=[];if(S.topic)t.push(`주제를 “${S.topic}”로 정했다.`);if(S.ideas.length)t.push(`키워드 ${S.ideas.length}개를 모아 ${S.groups.length}개 묶음으로 정리했다 (고유 아이디어 ${S.ideas.filter(i=>uniq(i.id)).length}개).`);if(S.links.length)t.push(`마인드맵에서 ${S.links.length}개의 연결을 만들었다.`+(S.links.some(l=>l[2])?" 연결 의견 — "+S.links.filter(l=>l[2]).map(l=>kwOf(l[0])+"–"+kwOf(l[1])+": "+l[2]).join("; "):""));if(S.wild.length)t.push(`엉뚱한 키워드(${S.wild.map(w=>w.kw).join(", ")})로 시야를 넓혔다.`);if(S.trunk.length)t.push(`핵심 줄기는 ${S.trunk.map(kwOf).join(" · ")}로 확인했다.`);if(lqList().length)t.push(`연결 질문에 여러 사람이 답했다: `+lqList().map(x=>x.연결+" ("+x.답변.join(" / ")+")").join("; "));S.fills.forEach(f=>t.push(`빈 부분 보완(${f.gap}): ${f.text}`));if(S.c1)t.push(`👍와 연결 의견을 종합해 팀 결론을 도출했고 ${S.team.filter(m=>m.ok).length}/${S.team.length}명이 동의했다: ${S.c1.slice(0,80)}`);fql().filter(x=>x.a).forEach(x=>t.push(`흐름 점검 질문(“${x.q}”)에 “${x.a.slice(0,50)}”라고 답했다.`));S.qs.filter(q=>q.sum||q.ans).forEach(q=>t.push(`[${q.type}] ${q.sum||q.ans.slice(0,40)}`));return t}
+let tlOpen=false;
+function sumList(){const L=[];
+if(S.topic||S.ideas.length)L.push(["주제·키워드",(S.topic?"“"+S.topic+"” — ":"")+(S.ideas.length?S.ideas.map(i=>i.kw).join(", "):"키워드 없음")]);
+if(S.groups.length)L.push(["카드",S.groups.map(g=>g.label+"("+g.ids.length+")").join(", ")+" · 고유 아이디어 "+S.ideas.filter(i=>uniq(i.id)).length+"개"]);
+if(S.links.length)L.push(["연결",S.links.slice(0,5).map(([a,b,n])=>kwOf(a)+"–"+kwOf(b)+(n?"("+n.slice(0,20)+")":"")).join(", ")+(S.links.length>5?" 외 "+(S.links.length-5)+"개":"")]);
+if(S.wild.length)L.push(["엉뚱한 키워드",S.wild.map(w=>w.kw).join(", ")]);
+if(S.trunk.length)L.push(["핵심 줄기",S.trunk.map(kwOf).join(" · ")+(S.p1ok?" ✔":" (확인 전)")]);
+if(lqList().length)L.push(["연결 질문",lqList().map(x=>x.연결+" — "+x.답변.length+"명 답변").join(", ")]);if(S.c1)L.push(["팀 결론",S.c1.slice(0,70)+"… ("+S.team.filter(m=>m.ok).length+"/"+S.team.length+" 동의)"]);const as=S.qs.filter(q=>q.sum||q.ans);if(as.length)L.push(["추론 카드",as.map(q=>q.type+": "+(q.sum||q.ans.slice(0,30))).join(" / ")]);
+if(S.concl&&!S.stale)L.push(["결론",S.concl.slice(0,80)+"…"]);
+return L}
+function tlSum(){const el=$("#tlsm"),L=sumList();el.onclick=()=>{tlOpen=!tlOpen;tlSum()};
+if(!L.length){el.innerHTML="<b>현재 토의 요약</b> 아직 입력된 내용이 없습니다.";return}
+const last=L[L.length-1];
+el.innerHTML=`<b>현재 토의 요약 ${tlOpen?"▾":"▸"}</b> `+(tlOpen?`<div style="margin-top:4px">${L.map(x=>`<div><b>${esc(x[0])}</b> ${esc(x[1])}</div>`).join("")}</div>`:`<span class="one">${esc(last[0]+": "+last[1])}</span>`)}
+function tl(){tlSum();const items=[["주제·키워드",1,1,S.ideas.length],["카드",1,2,S.groups.length],["연결",1,3,S.links.length],["엉뚱한 키워드",1,4,S.p1ok],["결론·동의",1,5,p1done()],["추론 카드",2,0,S.qs.some(q=>q.ans)],["요약",3,0,S.concl],["결론",4,0,!!(S.fin&&S.fin.body&&S.fin.src===S.concl)]];
+$("#tlin").innerHTML="<b>타임라인</b>"+items.map((x,i)=>`<span class="tn ${x[3]?"":"empty"} ${S.page===x[1]&&(x[2]===0||S.step===x[2])?"cur":""}" data-go="${i}">${x[3]?"●":"○"} ${x[0]}</span>`).join("");
+document.querySelectorAll(".tn").forEach(e=>e.onclick=()=>{const x=items[+e.dataset.go];if(x[1]===4&&(!S.concl||S.stale))return;if(x[1]===2&&!p1done())return;S.page=x[1];if(x[2])S.step=x[2];render();if(S.page===3)enter3();if(S.page===4)enter4()})}
+
+/* ---------- actions ---------- */
+function bind(){const g=id=>document.getElementById(id);
+const on=(id,f)=>{const e=g(id);if(e)e.onclick=f};
+on("add",()=>{S.topic=g("topic").value.trim();const k=g("kw").value.trim();if(k){S.ideas.push({id:"i"+Date.now(),kw:k,detail:g("dt").value.trim()});S.groups=[];touch()}render()});
+const kw=g("kw");if(kw)kw.onkeydown=e=>{if(e.key==="Enter")g("add").click()};
+const tp=g("topic");if(tp)tp.oninput=()=>{S.topic=tp.value.trim();save();const b=g("to2");if(b)b.disabled=S.ideas.length<3||!S.topic};
+document.querySelectorAll("[data-del]").forEach(a=>a.onclick=e=>{e.preventDefault();S.ideas=S.ideas.filter(i=>i.id!==a.dataset.del);S.groups=[];touch();render()});
+on("to2",async()=>{S.topic=g("topic").value.trim()||S.topic;S.step=2;S.note="AI가 아이디어를 묶는 중… ";render();await cluster();render()});
+document.querySelectorAll("[data-flip]").forEach(c=>c.onclick=e=>{if(e.target.closest("[data-ed]"))return;const i=S.ideas.find(x=>x.id===c.dataset.flip),d=c.querySelector(".d");d.dataset.o=d.dataset.o?"":"1";d.textContent=d.dataset.o?(i.detail||"(설명 없음)"):(i.detail||"").slice(0,26)+"…"});
+on("b1",()=>{S.step=1;render()});on("to3",()=>{S.step=3;render()});on("b2",()=>{S.step=2;render()});on("to4",()=>{S.step=4;S.sel=null;render()});on("b3",()=>{S.step=3;render()});
+on("wild",wild);
+document.querySelectorAll("[data-tr]").forEach(c=>c.onclick=()=>{const id=c.dataset.tr,i=S.trunk.indexOf(id);i>=0?S.trunk.splice(i,1):S.trunk.length<3&&S.trunk.push(id);S.p1ok=false;save();render()});
+on("chk",()=>{const top=topNodes().filter(x=>S.ideas.some(i=>i.id===x)),need=Math.min(2,top.length),hit=S.trunk.filter(t=>top.includes(t)).length;if(hit>=need){S.p1ok=true;S.note="";touch();}else{S.p1ok=false;S.note="아직 아닙니다. 마인드맵에서 가장 많은 선이 모이는 키워드를 다시 살펴보세요."}render()});
+on("to5",()=>{S.trunk=topNodes().filter(x=>S.ideas.some(i=>i.id===x));S.p1ok=true;S.step=5;touch();render()});on("b6",()=>{S.step=4;render()});on("to7",()=>{S.page=2;S.step=1;save();render()});
+document.querySelectorAll("[data-up]").forEach(b=>b.onclick=()=>{const l=S.links[+b.dataset.up];l[3]=(l[3]||0)+1;voteChg();render()});
+document.querySelectorAll("[data-dn]").forEach(b=>b.onclick=()=>{const l=S.links[+b.dataset.dn];l[3]=Math.max(0,(l[3]||0)-1);voteChg();render()});
+on("mkc",mkConcl);on("getq",getFq);on("mkq",mkLq);
+const wh=g("who");if(wh)wh.oninput=()=>{S.who=wh.value;save()};
+document.querySelectorAll("[data-lqa]").forEach(b=>b.onclick=()=>{const k=b.dataset.lqa,inp=document.querySelector('[data-lqi="'+k+'"]'),who=((g("who")||{}).value||"").trim(),t=inp.value.trim();if(!who){g("who").focus();g("who").placeholder="먼저 이름을 입력하세요";return}if(!t)return;S.who=who;S.lq[k].ans.push({who,t});if(!S.team.some(m=>m.name===who))S.team.push({name:who,ok:false});touch();render()});
+document.querySelectorAll("[data-lqi]").forEach(i=>i.onkeydown=e=>{if(e.key==="Enter")document.querySelector('[data-lqa="'+i.dataset.lqi+'"]').click()});
+document.querySelectorAll("[data-lx]").forEach(x=>x.onclick=()=>{S.lq[x.dataset.lx].ans.splice(+x.dataset.j,1);touch();render()});
+document.querySelectorAll("[data-ed]").forEach(a=>a.onclick=e=>{e.stopPropagation();S.edId=a.dataset.ed;render()});
+on("eok",()=>{const id=S.edId,k=g("ek").value.trim();if(!k)return;if(id==="T")S.topic=k;else{const w=S.wild.find(x=>x.id===id),i=S.ideas.find(x=>x.id===id);if(w)w.kw=k;if(i){i.kw=k;i.detail=g("ed").value.trim()}}S.edId=null;S.sel=null;voteChg();render()});
+on("ecl",()=>{S.edId=null;S.sel=null;render()});
+on("edel",()=>{const id=S.edId;if(S.trunk.includes(id))S.p1ok=false;S.ideas=S.ideas.filter(x=>x.id!==id);S.wild=S.wild.filter(x=>x.id!==id);S.links=S.links.filter(l=>l[0]!==id&&l[1]!==id);delete S.pos[id];S.trunk=S.trunk.filter(x=>x!==id);S.groups.forEach(gr=>gr.ids=gr.ids.filter(x=>x!==id));S.groups=S.groups.filter(gr=>gr.ids.length);S.edId=null;S.sel=null;S.selL=null;voteChg();render()});
+on("addm",()=>{const v=g("mn").value.trim();if(v){S.team.push({name:v,ok:false});save()}render()});
+document.querySelectorAll("[data-ag]").forEach(b=>b.onclick=()=>{const m=S.team[+b.dataset.ag];m.ok=!m.ok;touch();render()});
+document.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{S.team.splice(+b.dataset.rm,1);touch();render()});
+document.querySelectorAll("[data-fa]").forEach(t=>t.oninput=()=>{S.fq.list[+t.dataset.fa].a=t.value;touch();const b=g("to7");if(b)b.disabled=!p1done()});
+on("b4",()=>{S.page=1;S.step=4;render()});
+on("genq",genq);
+document.querySelectorAll("[data-q]").forEach(c=>c.onclick=e=>{if(e.target.closest("textarea,button"))return;S.qs[+c.dataset.q].open=!S.qs[+c.dataset.q].open;render()});
+document.querySelectorAll("[data-a]").forEach(t=>t.oninput=()=>{S.qs[+t.dataset.a].ans=t.value;S.qs[+t.dataset.a].sum="";touch()});
+document.querySelectorAll("[data-s]").forEach(b=>b.onclick=async()=>{const q=S.qs[+b.dataset.s];if(!q.ans)return;b.textContent="요약 중…";const r=await ask(`질문: ${q.q}\n답변: ${q.ans}\n한 문장(60자 이내)으로 요약해 JSON {"sum":"..."} 으로만 응답.`);q.sum=(r&&r.sum)||q.ans.slice(0,60)+(q.ans.length>60?"…":"");touch();render()});
+on("to6",()=>{S.page=3;render();enter3()});
+on("b5",()=>{S.page=2;render()});on("to8",()=>{S.page=4;render();enter4()});on("b7",()=>{S.page=3;render()});on("regen4",()=>{S.fin=null;enter4()});
+on("cp4",()=>{const f=S.fin||{},t=(f.head||"")+"\n\n[회의 내용 요약]\n"+(f.recap||"")+"\n\n[우리가 도출한 결론]\n"+(f.body||S.concl)+((f.next||[]).length?"\n\n다음 한 걸음\n"+f.next.map((x,i)=>(i+1)+". "+x).join("\n"):"")+"\n\n"+CR();navigator.clipboard&&navigator.clipboard.writeText(t).then(()=>{g("cp4").textContent="복사됨"}).catch(()=>{})});on("regen",()=>{S.stale=true;enter3()});
+const addFill=(gap,text)=>{S.fills.push({gap,text});S.stale=true;save();enter3()};
+document.querySelectorAll("[data-gap]").forEach(b=>b.onclick=()=>{const t=S.gaps.splice(+b.dataset.gap,1)[0];addFill(t,"제안을 받아들임: "+t)});
+document.querySelectorAll("[data-gw]").forEach(b=>b.onclick=()=>{const i=+b.dataset.gw,v=document.querySelector('[data-gi="'+i+'"]').value.trim();if(!v)return;const t=S.gaps.splice(i,1)[0];addFill(t,v)});
+document.querySelectorAll("[data-gp]").forEach(b=>b.onclick=()=>{S.page=+b.dataset.gp;S.step=S.page===1?3:1;render()});
+on("gfreeb",()=>{const v=g("gfree").value.trim();if(v)addFill("직접 추가",v)});
+on("cp",()=>{navigator.clipboard&&navigator.clipboard.writeText(S.concl+"\n\n"+CR()).then(()=>{g("cp").textContent="복사됨"}).catch(()=>{})});
+const addOp=()=>{const l=S.links[S.selL],t=(g("ot")||{}).value;if(!l||!t||!t.trim())return false;const who=((g("ow")||{}).value||"").trim();l[4]=l[4]||[];l[4].push({who,t:t.trim()});if(who)S.who=who;opSync(l);S.c1Stale=true;touch();return true};
+on("oadd",()=>{if(addOp())render()});
+const ot=g("ot");if(ot)ot.onkeydown=e=>{if(e.key==="Enter"&&addOp())render()};
+document.querySelectorAll("[data-oc]").forEach(x=>x.onclick=()=>{const l=S.links[S.selL];l[4].splice(+x.dataset.oc,1);opSync(l);S.c1Stale=true;touch();render()});
+on("odone",()=>{addOp();S.selL=null;render()});document.querySelectorAll("[data-ld]").forEach(b=>b.onclick=()=>{S.links.splice(+b.dataset.ld,1);S.selL=null;S.c1Stale=true;touch();render()});
+const m=g("map");if(m)mapEvents(m)}
+function mapEvents(m){let drag=null,moved=false;m.querySelectorAll("[data-l]").forEach(g=>g.onclick=e=>{e.stopPropagation();S.selL=+g.dataset.l;S.sel=null;render()});const pt=e=>{const r=m.getBoundingClientRect();return{x:(e.clientX-r.left)*700/r.width,y:(e.clientY-r.top)*420/r.height}};
+m.onpointerdown=e=>{const n=e.target.closest("[data-n]");if(!n)return;drag=n.dataset.n;moved=false;m.setPointerCapture(e.pointerId)};
+m.onpointermove=e=>{if(!drag)return;const p=pt(e);S.pos[drag]={x:Math.max(40,Math.min(660,p.x)),y:Math.max(24,Math.min(396,p.y))};moved=true;const g=m.querySelector(`[data-n="${drag}"]`);g.setAttribute("transform",`translate(${S.pos[drag].x},${S.pos[drag].y})`);m.querySelector(".lk").innerHTML=linkSvg()};
+m.onpointerup=()=>{if(!drag)return;const id=drag;drag=null;if(moved){touch();render();return}
+if(!S.sel){S.sel=id;S.edId=id}else if(S.sel===id){S.sel=null;S.edId=null}else{S.edId=null;const w1=isW(S.sel),w2=isW(id);if(w1||w2){const o=w1?id:S.sel;if((w1&&w2)||o==="T"){S.warn=w1&&w2?"엉뚱한 키워드끼리는 연결할 수 없어요. 기존 키워드에 붙여 주세요.":"엉뚱한 키워드는 중심 주제가 아니라 기존 키워드에 연결해 주세요.";S.sel=null;render();return}}const k=S.links.findIndex(([a,b])=>(a===S.sel&&b===id)||(a===id&&b===S.sel));k>=0?S.links.splice(k,1):S.links.push([S.sel,id,""]);S.sel=null;S.selL=null;touch()}render()}}
+async function cluster(){const list=S.ideas.map(i=>({id:i.id,kw:i.kw,detail:i.detail}));
+const r=await ask(`다음 아이디어 키워드를 의미가 비슷한 것끼리 묶어라. 한 개뿐인 것은 혼자 그룹으로 둔다. JSON만: {"groups":[{"label":"묶음 이름","summary":"한 줄 요약","ids":["id",...]}]}\n${JSON.stringify(list)}`);
+const ids=new Set(S.ideas.map(i=>i.id));let ok=r&&Array.isArray(r.groups)&&r.groups.length;if(ok){const seen=new Set();r.groups.forEach(g=>g.ids=(g.ids||[]).filter(x=>ids.has(x)&&!seen.has(x)&&seen.add(x)));S.ideas.forEach(i=>{if(![...r.groups].some(g=>g.ids.includes(i.id)))r.groups.push({label:i.kw,summary:i.detail||"",ids:[i.id]})});S.groups=r.groups.filter(g=>g.ids.length)}
+else{S.groups=localGroup();}S.note=ok?"":"(간이 분류 모드로 묶었어요) ";touch()}
+async function wild(){const b=$("#wild");b.disabled=true;b.textContent="던지는 중…";const have=S.ideas.map(i=>i.kw).join(", ");const r=await ask(`주제 “${S.topic}”와 키워드(${have})에 엉뚱하고 뜬금없지만 연상 가능한 키워드 3개를 제안. JSON만: {"words":["...","...","..."]}`);let w=r&&Array.isArray(r.words)?r.words.slice(0,3).map(String):[];while(w.length<3){const p=POOL[Math.floor(Math.random()*POOL.length)];if(!w.includes(p))w.push(p)}
+const cand=S.ideas.slice().sort(()=>Math.random()-.5);w.forEach((k,i)=>{const id="w"+Date.now()+i;S.wild.push({id,kw:k});const t=cand[i%cand.length];if(t)S.links.push([t.id,id])});layout();touch();render()}
+async function genq(){const b=$("#genq");b.disabled=true;$("#qm").textContent="질문 만드는 중…";const keys=S.trunk.map(kwOf).join(", "),all=S.ideas.map(i=>i.kw).join(", "),wd=S.wild.map(w=>w.kw).join(", ");
+const types=["전제 뒤집기","역할 바꾸기","조건 제거","엉뚱한 비유","극단적 상상","다른 분야 결합"];
+const r=await ask(`주제 “${S.topic}”, 핵심 줄기 ${keys}, 전체 키워드 ${all}, 엉뚱한 키워드 ${wd}. 발상을 확장할 질문 6개를 유형별로 하나씩(${types.join(", ")}) 한국어로 JSON만: {"qs":[{"type":"유형","q":"질문"}]}`);
+const k=S.trunk.map(kwOf),a=k[0]||S.topic,c=k[1]||k[0]||S.topic,w=S.wild[0]?S.wild[0].kw:"전혀 다른 분야";
+const T=[`“${a}”가 당연히 필요하다는 전제가 틀렸다면, 무엇이 달라질까요?`,`“${a}”의 사용자와 제공자의 역할이 뒤바뀐다면 어떤 모습일까요?`,`예산·시간·인력 제한이 모두 사라진다면 “${S.topic}”에서 가장 먼저 할 일은?`,`“${S.topic}”을 ${w}에 비유한다면 어떤 점이 닮았나요?`,`“${c}”를 100배로 키우거나 0으로 줄이면 어떤 일이 벌어질까요?`,`${w} 분야의 방식을 “${a}”에 접목하면 어떤 새 아이디어가 나올까요?`];
+S.qs=(r&&Array.isArray(r.qs)&&r.qs.length>=3?r.qs.slice(0,6).map(x=>({type:String(x.type||"질문"),q:String(x.q||"")})):types.map((t,i)=>({type:t,q:T[i]}))).map(q=>({...q,open:false,ans:"",sum:""}));touch();render()}
+async function enter3(){if(!S.stale&&S.concl){render();return}BUSY=true;render();
+const ctx={주제:S.topic,보완:S.fills.map(f=>f.gap+" → "+f.text),연결질문답변:lqList(),팀합의결론:S.c1,흐름질문답:fql().map(x=>({질문:x.q,답:x.a})),핵심줄기:S.trunk.map(kwOf),연결의견:S.links.filter(l=>l[2]).map(l=>({연결:kwOf(l[0])+"–"+kwOf(l[1]),의견:l[2]})),키워드:S.ideas.map(i=>i.kw),엉뚱한키워드:S.wild.map(w=>w.kw),묶음:S.groups.map(g=>g.label),답변:S.qs.filter(q=>q.ans).map(q=>({유형:q.type,질문:q.q,답:q.ans}))};
+const r=await ask(`아래는 브레인스토밍 과정이다. (1) 과정이 아닌 하나의 정리된 결론문(6~9문장, 한국어)을 쓰고 (2) 과정에서 비어 있는 부분이나 더 생각해볼 점을 2~3개 제안하라(보완에 이미 적힌 내용은 결론에 녹이고 다시 제안하지 마라). JSON만: {"concl":"...","gaps":["...","..."]}\n${JSON.stringify(ctx)}`);
+if(r&&r.concl){S.concl=String(r.concl);S.gaps=(r.gaps||[]).map(String).slice(0,3)}else{const as=S.qs.filter(q=>q.ans);S.concl=`“${S.topic}”의 핵심 줄기는 ${S.trunk.map(kwOf).join(", ")||"정해지지 않음"}입니다. `+(S.wild.length?`엉뚱한 키워드(${S.wild.map(w=>w.kw).join(", ")})를 통해 시야를 넓혔고, `:"")+as.map(q=>`${q.type} 관점에서는 ${q.sum||q.ans}`).join(" ")+" 이를 종합하면, 핵심 줄기를 중심으로 위 관점들을 하나의 실행 방향으로 묶어 다듬는 것이 다음 단계입니다."+(S.fills.length?" 보완으로는 "+S.fills.map(f=>f.text).join(" / ")+"이(가) 추가되었습니다.":"");
+const used=new Set(as.map(q=>q.type));S.gaps=[];if(!S.ideas.some(i=>uniq(i.id)))S.gaps.push("고유한 관점이 거의 없습니다. 다른 사람이 떠올리지 못할 키워드를 하나 더 추가해 보세요.");["전제 뒤집기","조건 제거"].forEach(t=>{if(!used.has(t))S.gaps.push(`“${t}” 질문에는 아직 답하지 않았습니다. 결론의 빈틈을 확인해 보세요.`)});if(S.links.length<S.ideas.length)S.gaps.push("연결되지 않은 키워드가 남아 있습니다. 결론에 반영되지 않은 아이디어가 있을 수 있어요.")}
+S.gaps=S.gaps.filter(g=>!S.fills.some(f=>f.gap===g));S.stale=false;BUSY=false;save();render()}
+const CR=(()=>{const p=["7KCc7J6R7J6QIDog6rK97JiB7ZWZ6rO8IDIwMjMxMTEz","MTcg7J206rCA7JewIC8g66y47J2Y7IKs","7ZWtIOy5tOy5tOyYpO2GoSBAZ2F5ZW9ucmVl"];return()=>new TextDecoder().decode(Uint8Array.from(atob(p.join("")),c=>c.charCodeAt(0)))})();
+let CH=null,CS=null;
+function applyCH(e=CH){["display:block","visibility:visible","opacity:1","position:static","height:auto","width:auto","overflow:visible","transform:none","clip-path:none","max-height:none","filter:none"].forEach(r=>{const i=r.indexOf(":");e.style.setProperty(r.slice(0,i),r.slice(i+1),"important")})}
+function mkCredit(){if(CH&&CH.isConnected)CH.remove();CH=document.createElement("div");CS=CH.attachShadow({mode:"closed"});CS.innerHTML='<style>:host{display:block!important}div{max-width:980px;margin:8px auto 0;padding:14px 20px 8px;text-align:center;font:12.5px/1.7 "Gowun Dodum","Noto Sans KR",system-ui,sans-serif;color:var(--mu,#8c7b6b);opacity:1!important;visibility:visible!important}</style><div></div>';CS.querySelector("div").textContent=CR();document.body.insertBefore(CH,document.getElementById("tl"));applyCH()}
+function chk(){if(!CH||!CH.isConnected||CH.parentNode!==document.body||CS.querySelector("div").textContent!==CR()){mkCredit();return}const r=CH.getBoundingClientRect(),cs=getComputedStyle(CH);if(r.height<10||cs.display==="none"||cs.visibility!=="visible"||+cs.opacity<.9)mkCredit();else applyCH()}
+let TH=null,TS=null;
+function mkTop(){if(TH&&TH.isConnected)TH.remove();TH=document.createElement("div");TS=TH.attachShadow({mode:"closed"});TS.innerHTML='<style>:host{display:block!important}div{max-width:980px;margin:0 auto;padding:10px 20px 0;text-align:right;font:12px/1.5 "Gowun Dodum","Noto Sans KR",system-ui,sans-serif;color:var(--mu,#8c7b6b);opacity:1!important;visibility:visible!important}</style><div></div>';TS.querySelector("div").textContent=CR();document.body.insertBefore(TH,document.querySelector("header"));applyCH(TH)}
+function chkT(){if(!TH||!TH.isConnected||TH.parentNode!==document.body||TS.querySelector("div").textContent!==CR()){mkTop();return}const r=TH.getBoundingClientRect(),cs=getComputedStyle(TH);if(r.height<10||cs.display==="none"||cs.visibility!=="visible"||+cs.opacity<.9)mkTop();else applyCH(TH)}
+mkTop();setInterval(chkT,1000);new MutationObserver(chkT).observe(document.body,{childList:true});
+S.links=S.links.filter(l=>!(isW(l[0])&&isW(l[1])));if(!S.page)S.page=1;render();if(S.page===4)enter4();if(S.page===3)enter3();getAI().then(()=>{});
+</script></body></html>
